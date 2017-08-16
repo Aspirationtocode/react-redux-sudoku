@@ -1,0 +1,41 @@
+.area
+	padding 5px
+	color #000
+	background linear-gradient(330deg, alpha(#eee, 100%), alpha(#fff, 100%))
+	font-size 38px
+	font-family RobotoCondensedBold
+	display flex
+	align-items center
+	justify-content center
+	user-select none
+
+	@media screen and (max-width: 680px)
+		padding 3px
+		font-size 27px
+
+	@media screen and (max-width: 480px)
+		font-size 22px
+		line-height 0.8
+
+	@media screen and (max-width: 400px)
+		font-size 18px
+		line-height 0.8
+
+	&--coloured
+		background linear-gradient(330deg, alpha(#bbb, 100%), alpha(#ccc, 100%))
+
+	&--choosen
+		background lighten(green, 20%)
+
+	&--choosen-initial
+		background lighten(red, 20%)
+
+	&--not-initial
+		font-family RobotoCondensedLight
+
+	&--choosen-number
+		background yellow
+		color #000
+
+	&:hover
+		cursor pointer
