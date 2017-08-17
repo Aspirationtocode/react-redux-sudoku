@@ -12,7 +12,7 @@ class Modificator extends Component {
     const { dispatch, choosenArea, choosenNumber } = this.props;
     if (choosenArea && !isInInitialState(choosenArea)) {
       dispatch(fillArea(choosenArea, value));
-      dispatch(changeChoosenNumber(choosenNumber === value ? null : value));
+      dispatch(changeChoosenNumber(value));
     }
   }
   render() {

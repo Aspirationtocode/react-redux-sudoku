@@ -1,3 +1,7 @@
+
+animation-bubble()
+	animation-name bubble
+	animation-duration .2s
 .area
 	padding 5px
 	color #000
@@ -25,9 +29,11 @@
 		background linear-gradient(330deg, alpha(#bbb, 100%), alpha(#ccc, 100%))
 
 	&--choosen
+		animation-bubble()
 		background lighten(green, 20%)
 
 	&--choosen-initial
+		animation-bubble()
 		background lighten(red, 20%)
 
 	&--not-initial
@@ -39,3 +45,14 @@
 
 	&:hover
 		cursor pointer
+
+
+
+@keyframes bubble
+	0%
+		transform scale(1)
+	50%
+		transform scale(1.2)
+		filter blur(13px)
+	100%
+		transform scale(1)
