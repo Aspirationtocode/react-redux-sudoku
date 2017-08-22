@@ -1,7 +1,11 @@
-
 animation-bubble()
 	animation-name bubble
 	animation-duration .2s
+//
+// animation-completed()
+// 	animation-name completed
+// 	animation-duration .6s
+
 .area
 	padding 5px
 	color #000
@@ -12,6 +16,12 @@ animation-bubble()
 	align-items center
 	justify-content center
 	user-select none
+
+	&.-appear
+		background-color red
+
+		&-active
+			background-color blue
 
 	@media screen and (max-width: 680px)
 		padding 3px
@@ -56,3 +66,15 @@ animation-bubble()
 		filter blur(13px)
 	100%
 		transform scale(1)
+
+// @keyframes completed
+// 	0%
+// 		background #4098bf
+// 	25%
+// 		background #1dd4c8
+// 	50%
+// 		background #4098bf
+// 	75%
+// 		background #1dd4c8
+// 	100%
+// 		background #4098bf

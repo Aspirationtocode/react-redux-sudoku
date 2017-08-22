@@ -11,13 +11,25 @@ class Area extends Component {
   changeChoosenArea(areaId, number) {
     const { dispatch } = this.props;
     dispatch(changeChoosenArea(areaId));
-    if (number !== 0) {
+    if (number) {
       dispatch(changeChoosenNumber(number));
     }
   }
+
   render() {
-    const { areaId, area, coloured, choosenArea, choosenNumber, dispatch } = this.props;
-    const classes = ['area'];
+    const {
+      areaId,
+      area,
+      coloured,
+      choosenArea,
+      choosenNumber,
+      dispatch,
+      mainField,
+      animated,
+    } = this.props;
+    const { completedSquares, completedVerticalLines, completedHorizontalLines } = mainField;
+
+    let classes = ['area'];
     if (coloured) {
       classes.push('area--coloured');
     }
@@ -27,6 +39,7 @@ class Area extends Component {
     } else if (choosenArea === areaId) {
       classes.push('area--choosen');
     }
+
     if (area == choosenNumber && areaId !== choosenArea) {
       classes.push('area--choosen-number');
     }
@@ -34,7 +47,6 @@ class Area extends Component {
     if (!isInInitialState(areaId)) {
       classes.push('area--not-initial');
     }
-
     return (
       <div
         className={classes.join(' ')}
@@ -43,7 +55,7 @@ class Area extends Component {
           this.changeChoosenArea(areaId, area);
         }}
       >
-        {area === 0 ? '' : area}
+        {area || null}
       </div>
     );
   }
@@ -52,6 +64,7 @@ class Area extends Component {
 const mapStateToProps = state => ({
   choosenArea: state.choosenArea,
   choosenNumber: state.choosenNumber,
+  mainField: state.mainField,
 });
 
 export default connect(mapStateToProps)(Area);

@@ -11,7 +11,8 @@ const coloured = (lineIndex) => {
 export const generateAreas = (mainField) => {
   const areas = [];
   let currentColouredAreas;
-  mainField.forEach((line, lineIndex) => {
+  const { completedHorizontalLines, completedVerticalLines } = mainField;
+  mainField.data.forEach((line, lineIndex) => {
     currentColouredAreas = coloured(lineIndex);
     line.forEach((area, areaIndex) => {
       const areaId = `${lineIndex}/${areaIndex}`;

@@ -9,8 +9,8 @@ class Modificator extends Component {
     this.handleModificatorClick = this.handleModificatorClick.bind(this);
   }
   handleModificatorClick(value) {
-    const { dispatch, choosenArea, choosenNumber } = this.props;
-    if (choosenArea && !isInInitialState(choosenArea)) {
+    const { dispatch, choosenArea, choosenNumber, mainField } = this.props;
+    if (choosenArea && !isInInitialState(choosenArea) && mainField.completed === null) {
       dispatch(fillArea(choosenArea, value));
       dispatch(changeChoosenNumber(value));
     }
@@ -28,6 +28,7 @@ class Modificator extends Component {
 const mapStateToProps = state => ({
   choosenArea: state.choosenArea,
   choosenNumber: state.choosenNumber,
+  mainField: state.mainField,
 });
 
 export default connect(mapStateToProps)(Modificator);
