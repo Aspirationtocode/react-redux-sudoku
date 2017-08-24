@@ -9,7 +9,9 @@ export default (state = initialState(), action) => {
         data: fillMainFieldById(state.data, areaId, newValue),
       });
       if (!newMainField.data.filter(line => line.includes(0)).length) {
-        return Object.assign({}, newMainField, { completed: checkMainField(newMainField.data) });
+        return Object.assign({}, newMainField, {
+          completed: checkMainField(newMainField.data),
+        });
       }
       return newMainField;
     }

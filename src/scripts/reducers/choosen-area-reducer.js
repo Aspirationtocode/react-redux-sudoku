@@ -1,9 +1,14 @@
-import { CHANGE_CHOOSEN_AREA } from '../constants';
+import { CHANGE_CHOOSEN_AREA, GENERATE_NEW_FIELD } from '../constants';
 
-export default (state = null, action) => {
+const initialState = '4/4';
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_CHOOSEN_AREA: {
       return action.payload;
+    }
+    case GENERATE_NEW_FIELD: {
+      return initialState;
     }
     default: {
       return state;
