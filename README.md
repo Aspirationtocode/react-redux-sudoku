@@ -1,3 +1,3 @@
-# wot-stat-app
-Simple app that communicating with WOT API
+# react-redux-sudoku-game
+Simple sudoku game
 
